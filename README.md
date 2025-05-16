@@ -1,5 +1,6 @@
-# av_course_schoolPC
-#Task 3: Autonomous Navigation of Ego Vehicle Using Autoware
+
+# Task 3: Autonomous Navigation of Ego Vehicle Using Autoware
+
 **Prerequisites**
 
     ROS 2 (e.g., Foxy, Galactic, Humble)
@@ -8,8 +9,9 @@
     Docker (optional but recommended for Autoware compatibility)
     A built and sourced workspace
 
-#Setup Instructions
-**Clone the repository and build the workspace**
+# Setup Instructions
+
+**Clone the repository**
 
 Navigate to your ROS 2 workspace
 
@@ -19,9 +21,13 @@ Clone this repository
 
 git clone https://github.com/Edgar-overclock/av_course_schoolPC
 
-Go back to workspace root
+**Enter the docker**
 
-cd ~/ros2_ws
+xhost +local:docker
+
+docker run -it --rm --privileged --env=DISPLAY --env=QT_X11_NO_MITSHM=1 -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/autolab/ros2_ws:/ros2_ws -v /home/autolab/autoware_map:/autoware_map --workdir /ros2_ws mohsen_aw:full bash
+
+**Build the workspace**
 
 Build all packages
 
